@@ -1,0 +1,37 @@
+<%= form_with(model: shortened_url) do |form| %>
+  <% if shortened_url.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(shortened_url.errors.count, "error") %> prohibited this shortened_url from being saved:</h2>
+
+      <ul>
+        <% shortened_url.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :original_url, style: "display: block" %>
+    <%= form.text_area :original_url %>
+  </div>
+
+  <div>
+    <%= form.label :short_url, style: "display: block" %>
+    <%= form.text_field :short_url %>
+  </div>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div>
+    <%= form.label :redirects, style: "display: block" %>
+    <%= form.number_field :redirects %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
