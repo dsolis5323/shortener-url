@@ -6,9 +6,9 @@
   <% @shortened_urls.each do |shortened_url| %>
     <%= render shortened_url %>
     <p>
-      <%= link_to "Show this shortened url", shortened_url %>
+      <%= link_to "Show this shortened url", shortened_url.short_url %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New shortened url", new_shortened_url_path %>
+<%= link_to "New shortened url", "/" %>
