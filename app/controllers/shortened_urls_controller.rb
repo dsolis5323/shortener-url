@@ -29,10 +29,8 @@ class ShortenedUrlsController < ApplicationController
             notice: "Shortened url was successfully created: #{@shortened_url.original_url} to #{@shortened_url.short_url}"
           )
         end
-        format.json { render :show, status: :created, location: @shortened_url }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @shortened_url.errors, status: :unprocessable_entity }
       end
     end
   end

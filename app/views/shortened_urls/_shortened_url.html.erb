@@ -2,21 +2,17 @@
   <p>
     <strong>Original url:</strong>
     <%= shortened_url.original_url %>
-  </p>
-
-  <p>
+    <br/>
     <strong>Short url:</strong>
     <%= shortened_url.short_url %>
-  </p>
-
-  <p>
+    <br/>
     <strong>Title:</strong>
     <%= shortened_url.title %>
-  </p>
-
-  <p>
+    <br/>
     <strong>Redirects:</strong>
     <%= shortened_url.redirects %>
+    <br/>
+    <%= link_to "Show this shortened url", shortened_url.short_url %>
   </p>
 
 </div>

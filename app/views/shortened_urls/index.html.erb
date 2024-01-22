@@ -7,9 +7,6 @@
 <div id="shortened_urls">
   <% @shortened_urls.each do |shortened_url| %>
     <%= render shortened_url %>
-    <p>
-      <%= link_to "Show this shortened url", shortened_url.short_url %>
-    </p>
   <% end %>
 </div>
 
