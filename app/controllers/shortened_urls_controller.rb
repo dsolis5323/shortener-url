@@ -8,6 +8,7 @@ class ShortenedUrlsController < ApplicationController
 
   # GET /shortened_urls/1 or /shortened_urls/1.json
   def show
+    @shortened_url.update(redirects: @shortened_url.redirects + 1)
     redirect_to @shortened_url.original_url, allow_other_host: true
   end
 
@@ -22,7 +23,12 @@ class ShortenedUrlsController < ApplicationController
 
     respond_to do |format|
       if @shortened_url.save
-        format.html { redirect_to shortened_url_url(@shortened_url), notice: 'Shortened url was successfully created.' }
+        format.html do
+          redirect_to(
+            '/top-100',
+            notice: "Shortened url was successfully created: #{@shortened_url.original_url} to #{@shortened_url.short_url}"
+          )
+        end
         format.json { render :show, status: :created, location: @shortened_url }
       else
         format.html { render :new, status: :unprocessable_entity }
