@@ -1,5 +1,5 @@
 class ShortenedUrlsController < ApplicationController
-  before_action :set_shortened_url, only: %i[ show ]
+  before_action :set_shortened_url, only: %i[show]
 
   # GET /shortened_urls or /shortened_urls.json
   def index
@@ -22,7 +22,7 @@ class ShortenedUrlsController < ApplicationController
 
     respond_to do |format|
       if @shortened_url.save
-        format.html { redirect_to shortened_url_url(@shortened_url), notice: "Shortened url was successfully created." }
+        format.html { redirect_to shortened_url_url(@shortened_url), notice: 'Shortened url was successfully created.' }
         format.json { render :show, status: :created, location: @shortened_url }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,13 +32,14 @@ class ShortenedUrlsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shortened_url
-      @shortened_url = ShortenedUrl.find_by_short_url(params[:short_url])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def shortened_url_params
-      params.require(:shortened_url).permit(:original_url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_shortened_url
+    @shortened_url = ShortenedUrl.find_by_short_url(params[:short_url])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def shortened_url_params
+    params.require(:shortened_url).permit(:original_url)
+  end
 end
