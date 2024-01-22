@@ -1,4 +1,12 @@
-require: rubocop-rails
+require: 
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  UseCache: true
+  NewCops: enable
 
 Style/FrozenStringLiteralComment:
   Enabled: false

@@ -45,10 +45,7 @@ gem 'bootsnap', require: false
 
 gem 'uri', '0.13.0'
 
-gem 'nokogiri', '1.16.0'
-
-# Enforces Rails best practices and coding conventions https://github.com/rubocop/rubocop-rails
-gem 'rubocop-rails', require: false
+gem 'nokogiri', '~> 1.16.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -56,6 +53,13 @@ gem 'rubocop-rails', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'rspec-rails', '~> 6.1.0'
+
+  # Enforces Rails best practices and coding conventions https://github.com/rubocop/rubocop-rails
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :development do

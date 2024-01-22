@@ -5,7 +5,7 @@ class ShortenedUrl < ApplicationRecord
   validates :original_url, presence: true, on: :create
   after_create :generate_short_url
 
-  ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split(//)
+  ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.chars
 
   def generate_short_url
     index = id
