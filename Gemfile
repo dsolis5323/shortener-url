@@ -43,6 +43,10 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'uri', '0.13.0'
+
+gem 'nokogiri', '1.16.0'
+
 # Enforces Rails best practices and coding conventions https://github.com/rubocop/rubocop-rails
 gem 'rubocop-rails', require: false
 

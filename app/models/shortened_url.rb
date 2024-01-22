@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class ShortenedUrl < ApplicationRecord
   validates :original_url, presence: true, on: :create
   after_create :generate_short_url
@@ -18,5 +21,14 @@ class ShortenedUrl < ApplicationRecord
 
   def new_url?
     ShortenedUrl.find_by(original_url:).nil?
+  end
+
+  def update_title!
+    url = original_url
+    URI.open(url) do |f|
+      doc = Nokogiri::HTML(f)
+      title = doc.at_css('title').text
+      self.title = title
+    end
   end
 end

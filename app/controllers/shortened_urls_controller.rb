@@ -20,6 +20,7 @@ class ShortenedUrlsController < ApplicationController
   # POST /shortened_urls or /shortened_urls.json
   def create
     @shortened_url = ShortenedUrl.new(shortened_url_params)
+    @shortened_url.update_title!
 
     respond_to do |format|
       if @shortened_url.save
