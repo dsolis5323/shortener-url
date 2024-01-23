@@ -43,12 +43,12 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-gem 'uri', '0.13.0'
+gem 'uri', '~> 0.13.0'
 
-gem 'nokogiri', '~> 1.16.0'
+gem 'nokogiri', '~> 1.16'
 
 # Background processing for Ruby. https://github.com/sidekiq/sidekiq
-gem 'sidekiq', '7.2.1'
+gem 'sidekiq', '~> 7.2'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -60,6 +60,7 @@ group :development, :test do
 
   # Enforces Rails best practices and coding conventions https://github.com/rubocop/rubocop-rails
   gem 'rubocop', require: false
+  gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
@@ -79,5 +80,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'factory_bot', '~> 6.4'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 6.1'
 end
