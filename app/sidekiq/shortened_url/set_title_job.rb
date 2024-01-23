@@ -3,7 +3,7 @@ class ShortenedUrl::SetTitleJob
 
   def perform(shortened_url_id)
     shortened_url = ShortenedUrl.find(shortened_url_id)
-    shortened_url.update_title!
-    shortened_url.save unless shortened_url.title.blank?
+    title = PageTitle.get_title(shortened_url.original_url)
+    shortened_url.update(title: title) unless title.blank?
   end
 end

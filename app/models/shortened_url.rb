@@ -19,11 +19,4 @@ class ShortenedUrl < ApplicationRecord
     end
     update(short_url: new_url)
   end
-
-  def update_title!
-    URI.parse(original_url).open do |f|
-      doc = Nokogiri::HTML(f)
-      self.title = doc.at_css('title').text
-    end
-  end
 end
