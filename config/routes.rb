@@ -1,7 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :shortened_urls
+  resources :shortened_urls, only: [:create]
 
   root to: 'shortened_urls#new'
   get '/top-100', to: 'shortened_urls#index'
