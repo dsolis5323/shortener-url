@@ -47,6 +47,9 @@ gem 'uri', '0.13.0'
 
 gem 'nokogiri', '~> 1.16.0'
 
+# Background processing for Ruby. https://github.com/sidekiq/sidekiq
+gem 'sidekiq', '7.2.1'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
