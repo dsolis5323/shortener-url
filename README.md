@@ -76,11 +76,33 @@ bundle exec rspec spec
 ## Usage
 Access the home page at http://localhost:3000.  
 Input a URL to receive a shortened version.  
-Use the short URL to be redirected to the original URL. Ex: The shortened url is `r3d`. http://localhost:3000/r3d will redirect you to the original url
+Use the short URL to be redirected to the original URL. Ex: The shortened url is `r3d`. http://localhost:3000/r3d will redirect you to the original url.  
 View the top 100 most frequently accessed URLs at http://localhost:3000/top-100. 
 
 ## Asynchronous Processing
 After creating a short URL, an asynchronous process (Sidekiq) will pull the title from the website. Please refresh the page to check the recently added titles.
+
+## Url Shortener Algorithm
+The algorithm is:
+```ruby
+ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.chars
+def generate_short_url!
+ index = id
+ new_url = ''
+ base = ALPHABET.length
+
+ while index.positive?
+   new_url << ALPHABET[index.modulo(base)]
+   index /= base
+ end
+ update(short_url: new_url)
+end
+```
+For this algorithm we will need to use an unique identifier. Since the database IDs are unique we will use them.  
+Then having the ID will be as easy as converting it form a decimal system to a base-62 number. We use a base-62 since is the number of characters at the `ALPHABET` constant.  
+The converting part is done by the `while` instruction.  
+Then we save the result convertion into the `short_url` column.  
+The time complexity is `O(log n)`, where `n` is the ID. This gives us one of the best notations we can have.
 
 ## Notes
 This project uses Sidekiq and Redis for handling asynchronous jobs.
