@@ -43,8 +43,10 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Provides classes to handle Uniform Resource Identifiers https://github.com/ruby/uri
 gem 'uri', '~> 0.13.0'
 
+# Helps working with XML and HTML https://nokogiri.org/
 gem 'nokogiri', '~> 1.16'
 
 # Background processing for Ruby. https://github.com/sidekiq/sidekiq
@@ -80,10 +82,15 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  # Ensure a clean state during tests https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record', '~> 2.1'
+  # Supports for multiple build strategies https://github.com/thoughtbot/factory_bot
   gem 'factory_bot', '~> 6.4'
+  # Add assigns and assert_template to controller tests  https://github.com/rails/rails-controller-testing
   gem 'rails-controller-testing', '~> 1.0'
   gem 'selenium-webdriver'
+  # Provides test common functionality https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '~> 6.1'
+  # Library for stubbing on HTTP requests https://github.com/bblimke/webmock
   gem 'webmock', '~> 3.19'
 end
