@@ -76,8 +76,12 @@ bundle exec rspec spec
 ## Usage
 Access the home page at http://localhost:3000.  
 Input a URL to receive a shortened version.  
+![Screenshot 2024-01-24 at 02 23 45](https://github.com/dsolis5323/shortener-url/assets/6640636/bdd12098-612c-4b18-a618-ed9538567e12)
 Use the short URL to be redirected to the original URL. Ex: The shortened url is `r3d`. http://localhost:3000/r3d will redirect you to the original url.  
 View the top 100 most frequently accessed URLs at http://localhost:3000/top-100. 
+![Screenshot 2024-01-24 at 02 27 03](https://github.com/dsolis5323/shortener-url/assets/6640636/0e50be1c-402e-4f1e-a1b1-5d0fae0e5239)
+We validate that the URL is valid one. We also prevent duplicated URLs.
+![Screenshot 2024-01-24 at 02 36 26](https://github.com/dsolis5323/shortener-url/assets/6640636/aa4a8cc0-42f4-47bc-931c-a89f450f70a6)
 
 ## Asynchronous Processing
 After creating a short URL, an asynchronous process (Sidekiq) will pull the title from the website. Please refresh the page to check the recently added titles.
