@@ -10,23 +10,23 @@ RSpec.describe ShortenedUrl, type: :model do
   end
 
   describe 'Custom Url Validations' do
-    it 'Should fail url validation' do 
+    it 'fails url validation' do
       new_url = FactoryBot.build(:shortened_url, original_url: 'abc')
       expect(new_url.valid?).to be(false)
       expect(new_url.errors[:original_url]).to eq(['is not a valid HTTP URL'])
     end
 
-    it 'Should pass url validation' do 
+    it 'passes url validation' do
       new_url = FactoryBot.build(:shortened_url)
       expect(new_url.valid?).to be(true)
     end
   end
 
   describe 'Generate short url' do
-    it 'Should fail url validation' do
+    it 'fails url validation' do
       ID = 999 # random high id so we do not repeat ids.
       SHORT_URL = 'hq' # result url for 999 id
-      new_url = FactoryBot.create(:shortened_url, id: ID )
+      new_url = FactoryBot.create(:shortened_url, id: ID)
       expect(new_url.short_url).to eq(SHORT_URL)
     end
   end
