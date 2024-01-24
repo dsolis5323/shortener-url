@@ -7,5 +7,7 @@ class PageTitle
       doc = Nokogiri::HTML(f)
       return doc.at_css('title').text
     end
+    rescue
+      return 'Title not found'
   end
 end
