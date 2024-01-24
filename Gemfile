@@ -82,9 +82,8 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'factory_bot', '~> 6.4'
+  gem 'rails-controller-testing', '~> 1.0'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 6.1'
   gem 'webmock', '~> 3.19'
-  gem 'rails-controller-testing', '~> 1.0'
 end
-

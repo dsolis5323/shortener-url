@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ShortenedUrlsController, type: :controller do
+RSpec.describe ShortenedUrlsController do
   describe 'GET #new' do
     it 'renders the new template' do
       get :new
@@ -41,7 +41,7 @@ RSpec.describe ShortenedUrlsController, type: :controller do
         post :create, params: url_params
       end.to change(ShortenedUrl, :count).by(1)
 
-      expect(response.status).to eq(302)
+      expect(response).to have_http_status(:found)
       expect(response).to redirect_to('/top-100')
     end
 
@@ -52,7 +52,7 @@ RSpec.describe ShortenedUrlsController, type: :controller do
         post :create, params: url_params
       end.not_to change(ShortenedUrl, :count)
 
-      expect(response.status).to eq(422)
+      expect(response).to have_http_status(:unprocessable_entity)
       expect(response).not_to redirect_to('/top-100')
     end
   end
