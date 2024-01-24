@@ -13,5 +13,9 @@ RSpec.describe 'ShortenedUrlRouting', type: :routing do
     it 'routes GET /top-100 to the shortened_url#index action' do
       expect(get: '/top-100').to route_to('shortened_urls#index')
     end
+
+    it 'routes POST /shortened_urls to the shortened_url#create action' do
+      expect(post: '/shortened_urls').to route_to('shortened_urls#create')
+    end
   end
 end
