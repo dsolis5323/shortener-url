@@ -16,6 +16,8 @@ Before setting up the project, make sure you have the following prerequisites in
 
 1. **Homebrew:**
    - Install Homebrew: [Homebrew Installation](https://brew.sh/)
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 2. **MySQL:**
    - Install MySQL: `brew install mysql`
@@ -26,14 +28,17 @@ Before setting up the project, make sure you have the following prerequisites in
    CREATE USER 'shorteneruser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
    GRANT ALL PRIVILEGES ON *.* TO 'shorteneruser'@'localhost';
    FLUSH PRIVILEGES;
-   ```****
+   ```
 
 3. **Redis:**
    - Install Redis: `brew install redis`
 
 4. **Ruby on Rails with RVM:**
    - Install RVM: [RVM Installation](https://rvm.io/rvm/install)
-   - Install Ruby on Rails: `gem install rails`
+   ```bash
+   \curl -sSL https://get.rvm.io | bash -s stable --ruby
+   gem install rails
+   ```
 
 ## Project Setup
 
@@ -71,7 +76,7 @@ bundle exec rspec spec
 ## Usage
 Access the home page at http://localhost:3000.  
 Input a URL to receive a shortened version.  
-Use the short URL to be redirected to the original URL.  
+Use the short URL to be redirected to the original URL. Ex: The shortened url is `r3d`. http://localhost:3000/r3d will redirect you to the original url
 View the top 100 most frequently accessed URLs at http://localhost:3000/top-100. 
 
 ## Asynchronous Processing
