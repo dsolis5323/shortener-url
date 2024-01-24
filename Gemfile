@@ -83,4 +83,7 @@ group :test do
   gem 'factory_bot', '~> 6.4'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 6.1'
+  gem "database_cleaner-active_record", "~> 2.1"
+  # gem "database_cleaner-redis", "~> 2.0"
 end
+

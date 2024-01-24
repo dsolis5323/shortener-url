@@ -4,11 +4,11 @@ require 'open-uri'
 class ShortenedUrl < ApplicationRecord
   validates :original_url, presence: true, uniqueness: true, http_url: true, on: :create
   validates :short_url, uniqueness: true, allow_nil: true
-  after_create :generate_short_url
+  after_create :generate_short_url!
 
   ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.chars
 
-  def generate_short_url
+  def generate_short_url!
     index = id
     new_url = ''
     base = ALPHABET.length
