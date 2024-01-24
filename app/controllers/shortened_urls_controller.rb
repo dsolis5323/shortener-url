@@ -27,7 +27,8 @@ class ShortenedUrlsController < ApplicationController
         format.html do
           redirect_to(
             '/top-100',
-            notice: "Shortened url was successfully created: #{@shortened_url.original_url} to #{@shortened_url.short_url}"
+            notice: 'Shortened url was successfully created: ' \
+                    "#{@shortened_url.original_url} to #{@shortened_url.short_url}"
           )
         end
       else

@@ -12,12 +12,13 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_01_20_223421) do
   create_table "shortened_urls", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "original_url", null: false
+    t.string "original_url", limit: 2048, null: false
     t.string "short_url"
     t.text "title"
     t.integer "redirects", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["short_url"], name: "unique_short_url", unique: true
   end
 
 end

@@ -2,7 +2,12 @@ require 'nokogiri'
 require 'open-uri'
 
 class ShortenedUrl < ApplicationRecord
-  validates :original_url, presence: true, uniqueness: true, http_url: true, on: :create
+  validates :original_url,
+            presence: true,
+            uniqueness: true,
+            http_url: true,
+            length: { maximum: 2048 },
+            on: :create
   validates :short_url, uniqueness: true, allow_nil: true
   after_create :generate_short_url!
 

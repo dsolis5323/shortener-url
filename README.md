@@ -63,7 +63,7 @@ Before setting up the project, make sure you have the following prerequisites in
 In your terminal, open 3 tabs to run one command per tab
   ```bash
   redis-server
-  sidekiq
+  bundle exec sidekiq
   rails s
   ```
 
@@ -109,3 +109,11 @@ Then having the ID will be as easy as converting it from a decimal system to a b
 The convertion part is done by the `while` instruction.  
 Then we save the result convertion into the `short_url` column.  
 The time complexity is `O(log n)`, where `n` is the ID. This gives us one of the best notations we can have.
+
+## Notes
+This project uses Sidekiq and Redis for handling asynchronous jobs.
+To flush Redis database, use the following command:
+```bash
+redis-cli
+FLUSHALL
+```
