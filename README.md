@@ -99,7 +99,7 @@ def generate_short_url!
 end
 ```
 For this algorithm we will need to use an unique identifier. Since the database IDs are unique we will use them.  
-Then having the ID will be as easy as converting it form a decimal system to a base-62 number. We use a base-62 since is the number of characters at the `ALPHABET` constant.  
+Then having the ID will be as easy as converting it from a decimal system to a base-62 number. We use a base-62 since is the number of characters at the `ALPHABET` constant.  
 The convertion part is done by the `while` instruction.  
 Then we save the result convertion into the `short_url` column.  
 The time complexity is `O(log n)`, where `n` is the ID. This gives us one of the best notations we can have.
