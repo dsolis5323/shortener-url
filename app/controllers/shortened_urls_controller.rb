@@ -23,7 +23,7 @@ class ShortenedUrlsController < ApplicationController
 
     respond_to do |format|
       if @shortened_url.save
-        ShortenedUrl::SetTitleJob.perform_async(@shortened_url.id)
+        ShortenedUrlJobs::SetTitleJob.perform_async(@shortened_url.id)
         format.html do
           redirect_to(
             '/top-100',

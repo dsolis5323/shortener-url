@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'ShortenedUrlRouting', type: :routing do
+RSpec.describe 'ShortenedUrlRouting' do
   describe 'routes for ShortenedUrl' do
     it 'routes GET / "root" to the shortened_url#new action' do
       expect(get: '/').to route_to('shortened_urls#new')
