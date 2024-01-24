@@ -25,7 +25,7 @@ Before setting up the project, make sure you have the following prerequisites in
    - Create a user and set privileges:
    ```bash
    mysql -u root -p
-   CREATE USER 'shorteneruser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
+   CREATE USER 'shorteneruser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass432!';
    GRANT ALL PRIVILEGES ON *.* TO 'shorteneruser'@'localhost';
    FLUSH PRIVILEGES;
    ```
