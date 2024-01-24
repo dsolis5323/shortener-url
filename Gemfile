@@ -84,5 +84,7 @@ group :test do
   gem 'factory_bot', '~> 6.4'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 6.1'
-  # gem "database_cleaner-redis", "~> 2.0"
+  gem 'webmock', '~> 3.19'
+  gem 'rails-controller-testing', '~> 1.0'
 end
+
